@@ -44,6 +44,7 @@ plot4 <- function(){
         sum1999 <- sum(coal1999Data$Emissions)
         sum2002 <- sum(coal2002Data$Emissions)
         sum2005 <- sum(coal2005Data$Emissions)
+        print(cat("sum 2005: " ,sum2005))
         sum2008 <- sum(coal2008Data$Emissions)
 
         #Create a new data frame (in case we need to use ggplot2)
@@ -59,12 +60,13 @@ plot4 <- function(){
         #A slope of 1 (horizontal line) indicates no change in emission (ie no
         #increase or decrease).
         png(file="plot4.png", height=480,width=480)
-        plot(years,emissions,pch=21, xlab="Year",
+        plot(years,emissions,pch=15, xlab="Year",
              ylab="Total Emissions from Coal-combustion (tons)",
-             main="Total Coal-combustion Emissions for Baltimore City 199-2008",
+             main="Total Coal-combustion Emissions for Baltimore City 1999-2008",
              col="blue")
         abline(lm(emissions~years),col="red")
-        legend(x="topright", legend="Linear Regression", lty=1,col="red",title="Best-fit line")
+        #Move legend to lower left, point for 2005 is obscured by the legend
+        legend(x="bottomleft", legend="Linear Regression", lty=1,col="red",title="Best-fit line")
 
         #ggplot2 instructions for scatter plot, if base plot's simple line plot
         #doesn't look OK...
