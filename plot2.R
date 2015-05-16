@@ -1,7 +1,7 @@
 plot2<-function(){
-    #Determine if *TOTAL* emissions (from all sources) for Baltimore City have increased or decreased.
-    #Generate a simple line plot of only 4 points to see if a trend exists.
-    #!!!!NOTE!!!:  The plots MUST BE GENERATED using R base plotting.
+      #Determine if *TOTAL* emissions (from all sources) for Baltimore City have increased or decreased.
+      #Generate a simple line plot of only 4 points to see if a trend exists.
+      #!!!!NOTE!!!:  The plots MUST BE GENERATED using R base plotting.
 
       NEI <- readRDS("/Users/MiniMe/Coursera/ExploratoryDataAnalysis/Project2/exdata_data_NEI_data/summarySCC_PM25.rds")
       #SCC <- readRDS("/Users/Coursera/exdata_data_NEI_data/Source_Classification_Code.rds")
@@ -34,7 +34,6 @@ plot2<-function(){
       print(summary(totals))
 
       #Generate a simple line plot of only four data point to see if a trend exists.
-     # png(filename="baltimore.png", width=480,height=480, bg="white")
       png(filename="plot2.png",height=480,width=480)
       plot(years,totals,pch=19,main="Total PM25 Emissions- All Sources for Baltimore City",xlab="", ylab="Total PM 25 Emissions (tons)",col="black")
 
@@ -44,7 +43,6 @@ plot2<-function(){
 
      #Label the linear regression line, define the line type, use solid line (linetype=1),
      #and add the legend.
-
      legend(x="topright", legend="Linear Regression", lty=1,col="red",title="Best-fit line")
      dev.off()
 }
