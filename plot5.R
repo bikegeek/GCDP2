@@ -31,11 +31,10 @@ plot5<-function(){
      #Get the SCC values for motor vehicles (on-road and off-road, discussed above)
      mvId <- motorvehicle$SCC
      mvSCCs <- as.character(mvId)
-     #print(mvSCCs)
 
      #Subset the NEI dataframe for Baltimore City motor vehicles
-     baltimoreMV <- subset(NEI,NEI$SCC %in% mvSCCs )
-     
+     MV <- subset(NEI,NEI$SCC %in% mvSCCs )
+     baltimoreMV <- subset(MV, MV$fips == "24510")
      #Get the total emissions for each year: 1999, 2002, 2005, and 2008.
      mv1999Data <- subset(baltimoreMV, baltimoreMV$year == "1999")
      mv2002Data <- subset(baltimoreMV, baltimoreMV$year == "2002")
