@@ -40,8 +40,17 @@ plot1<-function(){
       totals<-c(totalEmissions1999,totalEmissions2002,totalEmissions2005,totalEmissions2008)
 
       #Generate a simple line plot to see if there is a clear trend.
-      #However, there are only four points so this may not provide a definitive answer.
+      #However, there are only four points so this may not provide a definitive
+      #answer, so add a best fit line (linear regression line) to determine
+      #if there is a trend.  A positive slope for the best fit line indicates
+      #that emissions are increasing from 1998 to 2008, whereas a negative
+      #slope indicates decreasing emissions.
       png(filename="plot1.png",width=480,height=480)
-      plot(years,totals,type="l",main="Total PM25 Emissions from all Sources",xlab="", ylab="Total PM 25 Emissions (tons)")
+      plot(years,totals,pch=20,col="blue",main="Total PM25 Emissions for United States from all Sources",xlab="Year", ylab="Total PM 25 Emissions (tons)")
+      abline(lm(totals~years),col="red")
+
+      #Label the linear regression line, define the line type, use solid line (linetype=1),
+      #and add the legend.
+      legend(x="topright", legend="Linear Regression", lty=1,col="red",title="Best-fit line")
       dev.off()
 }
