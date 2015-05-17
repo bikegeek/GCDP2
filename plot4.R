@@ -1,12 +1,12 @@
 plot4 <- function(){
         #Addresses question 4:
-        #What is the trend for coal-combustion emissions for Baltimore City from
+        #What is the trend for coal-combustion emissions for the United States from
         #1999-2008?
 
         #Approach:  Determine the SCC values (from the Source_Classification_Code
         #that corresponds to any source that has any entry with "coal"
         #(case-insensitive).  Use these SCC values to subset the
-        #summarySCC_PM25 data for Baltimore City (fips="24510") and calculate
+        #summarySCC_PM25 data for the United States and calculate
         #the total emissions for each year: 1999, 2002,2005, and 2008.
         #Generate a simple plot with a best fit line to determine if there
         #is an overall trend.  A line with a negative slope will indicate
@@ -61,8 +61,8 @@ plot4 <- function(){
         #increase or decrease).
         png(file="plot4.png", height=480,width=480)
         plot(years,emissions,pch=15, xlab="Year",
-             ylab="Total Emissions from Coal-combustion (tons)",
-             main="Total Coal-combustion Emissions for Baltimore City 1999-2008",
+             ylab="Total PM25 Emissions from Coal-combustion (tons)",
+             main="Total Coal-combustion Emissions for the United States 1999-2008",
              col="blue")
         abline(lm(emissions~years),col="red")
         #Move legend to lower left, point for 2005 is obscured by the legend
